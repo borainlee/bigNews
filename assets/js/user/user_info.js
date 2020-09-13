@@ -47,6 +47,7 @@ $(function () {
                 if (res.status !== 0) {
                     return layer.msg(res.message)
                 }
+                layer.msg('更新信息成功！')
                 // 使用iframe标签后，页面中内容如果想调用父页面的方法，可以使用window.parent
                 window.parent.getUserInfo()
             }

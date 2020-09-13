@@ -58,13 +58,13 @@
             <td>{{$value.name}}</td>
             <td>{{$value.alias}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-xs">编辑</button>
-                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                <button type="button" data-id="{{$value.Id}}" class="layui-btn layui-btn-xs" id="btnEdit">编辑</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.Id}}">删除</button>
             </td>
         </tr>
         {{/each}}
     </script>
-
+  <!-- 添加分类模板 -->
   <script type="text/html" id="dialog-add">
     <form class="layui-form" id="form-add">
       <div class="layui-form-item">
@@ -87,6 +87,29 @@
       </div>
     </form>
     </script>
+  <!-- 编辑分类模板 -->
+  <script type="text/html" id="dialog-edit">
+      <form class="layui-form" id="form-edit" lay-filter="edit-form"> 
+        <input type="hidden" name="Id">
+        <div class="layui-form-item">
+          <label class="layui-form-label">分类名称</label>
+          <div class="layui-input-block">
+            <input type="text" name="name" required  lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">分类别名</label>
+          <div class="layui-input-block">
+            <input type="text" name="alias" required  lay-verify="required" placeholder="请输入分类别名" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+          </div>
+        </div>
+      </form>
+      </script>
 
 
 
