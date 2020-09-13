@@ -51,7 +51,7 @@ $(function () {
         })
     })
 
-    
+
     // 监听登录表单的提交事件
     $('#form_login').submit(function (e) {
         // 阻止默认提交行为
@@ -61,6 +61,7 @@ $(function () {
             method: 'POST',
             data: $(this).serialize(),
             success: function (res) {
+                console.log(res);
                 if (res.status !== 0) {
                     return layer.msg(res.messgae)
                 }

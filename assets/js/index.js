@@ -42,7 +42,7 @@ $(function () {
             // }
         })
     }
-
+    window.getUserInfo = getUserInfo
 
     function renderAvatar(user) {
         // 获取用户昵称
