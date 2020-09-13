@@ -63,7 +63,7 @@ $(function () {
             success: function (res) {
                 console.log(res);
                 if (res.status !== 0) {
-                    return layer.msg(res.messgae)
+                    return layer.msg('登录失败')
                 }
                 layer.msg('登录成功')
                 // 将token值保存到本地存储中
