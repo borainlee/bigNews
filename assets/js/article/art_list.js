@@ -107,4 +107,33 @@ $(function () {
       }
     })
   }
+
+
+  // 删除文章
+  $('tbody').on('click', '#delete-btn', function (e) {
+    e.preventDefault()
+    // 获取删除按钮的个数
+    var len = $('#delete-btn').length
+    var artId = $(this).attr('data-id')
+    layer.confirm('是否删除文章？', { icon: 3, title: '提示' }, function (index) {
+      //do something
+      $.ajax({
+        url: `/my/article/delete/${artId}`,
+        method: 'GET',
+        success: function (res) {
+          if (res.status !== 0) {
+            return layer.msg(res.message)
+          }
+          layer.msg('删除成功')
+
+          if (len === 1) {
+            // 当按钮只有一个时
+            q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+          }
+          initTable()
+          layer.close(index);
+        }
+      })
+    });
+  })
 })
